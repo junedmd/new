@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { response } from 'express';
 import mongoose from 'mongoose';
 import Report from './modules/Reports.js';
 
@@ -45,7 +45,7 @@ app.post('/reports', async (req, res) => {
       try{
        const totalReports = await Report.find();
   
-      res.send({
+         res.send({
           success:true,
           data:totalReports,
           message:"total data is fetched"
@@ -57,10 +57,10 @@ app.post('/reports', async (req, res) => {
           })
       }
       
+  });
   
-  })
   app.get('/aam',async(req,res)=>{
-      res.return({
+       return res.json({
         success:true,
         message:"juned hi"
       }
@@ -84,6 +84,6 @@ app.post('/reports', async (req, res) => {
 
 })
 
-app.listen(5000, () => {
+app.listen(8080, () => {
   console.log("listening on port 5000");
 })
